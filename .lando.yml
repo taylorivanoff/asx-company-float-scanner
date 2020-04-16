@@ -1,0 +1,4 @@
+name: float-scanner
+recipe: laravel
+config:
+  webroot: public

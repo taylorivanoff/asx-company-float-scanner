@@ -1,0 +1,30 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Element UI
+@import 'element-theme-default';
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Dark Mode
+@import 'darkmode';
+
+[v-cloak] {
+  display: none;
+}
+
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    height: 100vh;
+}
+
+header, footer {
+    margin: 1rem 0;
+}
