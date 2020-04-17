@@ -12,6 +12,16 @@ import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
 Vue.use(Element, { locale })
 
+// Fixes an issue with filters not working on mobile
+Element.Select.computed.readonly = function () {
+    // trade-off for IE input readonly problem: https://github.com/ElemeFE/element/issues/10403
+    const isIE = !this.$isServer && !Number.isNaN(Number(document.documentMode));
+
+    return !(this.filterable || this.multiple || !isIE) && !this.visible;
+};
+
+export default Element;
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
