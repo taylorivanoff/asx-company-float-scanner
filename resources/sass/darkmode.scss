@@ -17,7 +17,7 @@ body {
 // _mode-toggle.scss
 .mode-toggle {
     position: relative;
-    //margin: auto .5rem .5rem auto;
+    margin: auto .5rem .5rem auto;
     padding: 0;
     width: 44px;
     height: 24px;
@@ -76,8 +76,13 @@ body.dark-mode {
         color: #D1D1D1;
     }
 
+    #popout-link {
+        color: #D1D1D1;
+    }
+
     .mode-toggle {
         background-color: lighten($mode-toggle-bg, 5%);
+        border: 1px solid #C1C1C1;
 
         .toggle {
             transform: translateX(19px);

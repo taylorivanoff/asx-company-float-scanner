@@ -18,7 +18,7 @@
                 href = link;
             else 
                 href = link.href; 
-            window.open(href, '{{ config('app.name') }}', 'width=380,height=110,scrollbars=no,menubar=no'); 
+            window.open(href, '{{ config('app.name') }}', 'width=380,height=130,scrollbars=no,menubar=no'); 
             return false; 
         }
         </script>
@@ -52,9 +52,8 @@
                 </div>
                 <div class="row ">
                     <div class="col">
-                        <p class="text-monospace d-none d-sm-block mb-md-4">Enter a ASX stock ticker/symbol. <span><small><a href="/" onClick="return popout(this)" class="ml-4 d-none d-sm-inline"><u>Popout Window</u></a></small>
+                        <p class="text-monospace d-none d-sm-block mb-md-4 p">Enter a ASX stock ticker/symbol. <span><small><a href="/" id="popout-link" onClick="return popout(this)" class="ml-4 d-none d-sm-inline"><u>Popout Window</u></a></small>
                             </span></p>
-                        
 
                         @yield('content')
                     </div>

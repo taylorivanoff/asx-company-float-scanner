@@ -27,8 +27,8 @@
         <div class="col-sm-9 col-7">
             <p class="text-success text-monospace h5 pt-2" v-if="ticker">
                 {{ ticker.float }} FLOAT<br><br>
-                <span class="d-none d-sm-block">{{ ticker.name }}<br><br></span>
-                <span class="d-none d-sm-block">UPDATED {{ ticker.updated_at }}<br><br></span>
+                <span class="d-none d-sm-block h6">{{ ticker.name }}<br></span>
+                <span class="d-none d-sm-block h6">UPDATED {{ ticker.updated_at }}<br><br></span>
             </p> 
         </div>
     </div>              
@@ -46,7 +46,7 @@
       }
     },
     async created () {
-        await axios.get(`companies`)
+        await axios.get('companies')
             .then(response => {
                 this.companies = response.data
             })
@@ -63,9 +63,7 @@
         });
     },
     computed: {
-        // a computed getter
         ticker: function () {
-            // `this` points to the vm instance
             return this.value.data
         }
     },
