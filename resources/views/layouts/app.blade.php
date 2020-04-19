@@ -40,7 +40,11 @@
                     <div class="col">
                         <header class="mt-md-5 pt-md-5">
                             <div class="d-flex">
-                                <h1 class="h4 mr-4">{{ config('app.name') }}</h1>
+                                <h1 class="h4 mr-4">{{ config('app.name') }} 
+                                </h1>
+                                <small class="text-success text-monospace pt-1 d-none d-sm-block">
+                                    * Data from Yahoo Finance
+                                </small> 
                                 <div class="mode-toggle" @click="modeToggle" :class="darkDark">
                                     <div class="toggle">
                                         <div id="dark-mode" type="checkbox"></div>

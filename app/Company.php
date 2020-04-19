@@ -14,6 +14,13 @@ class Company extends Model
      */
     protected $guarded = [];
 
+     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['short_code'];
+
 	/**
      * The attributes that are hidden.
      *
@@ -34,18 +41,15 @@ class Company extends Model
 	    return 'code';
 	}
 
-
     /**
-     * Get last updated human friendly time.
+     * Get the company code without AX.
      *
-     * @param  string  $value
      * @return string
      */
-    // public function getNameAttribute($value)
-    // {
-    //     return ucwords(strtolower($value));
-    // }
-
+    public function getShortCodeAttribute()
+    {
+        return $this->attributes['short_code'] = str_replace(".AX", "", $this->code);
+    }
 
     /**
      * Get last updated human friendly time.
