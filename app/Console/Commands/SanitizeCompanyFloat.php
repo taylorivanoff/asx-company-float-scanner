@@ -19,7 +19,7 @@ class SanitizeCompanyFloat extends Command
      *
      * @var string
      */
-    protected $description = 'Remove company floats that contain <span>.';
+    protected $description = 'Remove company floats that contain <span>';
 
     /**
      * Create a new command instance.

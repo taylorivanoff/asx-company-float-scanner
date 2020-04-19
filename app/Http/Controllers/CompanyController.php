@@ -14,7 +14,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::where('float_integer', '>', '0')->get();
+        $companies = Company::all()->whereNotNull('float');
 
         return response()->json($companies);
     }

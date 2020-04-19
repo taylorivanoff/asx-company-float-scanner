@@ -22,7 +22,7 @@ class UpdateCompanies extends Command
      *
      * @var string
      */
-    protected $description = 'Update companies based on ASX nightly updated CSV.';
+    protected $description = 'Update companies based on ASX nightly updated CSV';
 
     /**
      * Create a new command instance.

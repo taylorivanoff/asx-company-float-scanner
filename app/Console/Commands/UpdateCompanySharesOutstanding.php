@@ -7,21 +7,21 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use KubAT\PhpSimple\HtmlDomParser;
 
-class UpdateCompanyFloat extends Command
+class UpdateCompanySharesOutstanding extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'update:companies:float';
+    protected $signature = 'update:companies:outstanding';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update company floats based on Yahoo Finance';
+    protected $description = 'Update company shares outstanding based on Yahoo Finance';
 
     /**
      * Create a new command instance.
@@ -40,9 +40,7 @@ class UpdateCompanyFloat extends Command
      */
     public function handle()
     {
-        $companies = Company::where('updated_at', '>=', Carbon::now()->subWeeks(2))
-            ->whereNull('float')
-            ->get();
+        $companies = Company::all();
 
         $bar = $this->output->createProgressBar(count($companies));
 
@@ -58,24 +56,24 @@ class UpdateCompanyFloat extends Command
             
             if (empty($dom)) {
                 $this->error("Unable to get for $company->code");
-                $company->float = '';
+                $company->shares_outstanding = '';
                 $company->save();
                 continue;
             }
 
             $spans = $dom->find('span');
+            $sharesOutstanding = '';
 
-            $float = '';
             foreach ($spans as $span) {
-                if ($span->innertext == 'Float') {
-                    $float = $span->parent->parent->children[1]->innertext;
-                    if (strpos($float, 'span') !== false) {
-                        $float = '';
+                if ($span->innertext == 'Shares outstanding') {
+                    $sharesOutstanding = $span->parent->parent->children[1]->innertext;
+                    if (strpos($sharesOutstanding, 'span') !== false) {
+                        $sharesOutstanding = '';
                     }
                 } 
             }
 
-            $company->float = $float;
+            $company->shares_outstanding = $sharesOutstanding;
             $company->save();
 
             $bar->advance();

@@ -19,7 +19,10 @@ class Company extends Model
      *
      * @var array
      */
-    protected $appends = ['short_code'];
+    protected $appends = [
+        'float_integer',
+        'code_short'
+    ];
 
 	/**
      * The attributes that are hidden.
@@ -42,13 +45,34 @@ class Company extends Model
 	}
 
     /**
+     * Get the company float in integer.
+     *
+     * @return string
+     */
+    public function getFloatIntegerAttribute()
+    {
+        $letters = [
+            'k' => 1000,
+            'M' => 1000000,
+            'B' => 1000000000,
+        ];
+
+        foreach ($letters as $letter => $multiple) {
+            if (strpos($this->float, $letter) !== false) {
+                str_replace($letter, "", $this->float);
+                return $this->attributes['float_integer'] = (int) $this->float * $multiple;
+            }
+        }
+    }
+
+    /**
      * Get the company code without AX.
      *
      * @return string
      */
-    public function getShortCodeAttribute()
+    public function getCodeShortAttribute()
     {
-        return $this->attributes['short_code'] = str_replace(".AX", "", $this->code);
+        return $this->attributes['code_short'] = str_replace(".AX", "", $this->code);
     }
 
     /**
