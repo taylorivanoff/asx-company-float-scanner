@@ -10,7 +10,6 @@ window.Vue = require('vue');
 
 import Element from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
-Vue.use(Element, { locale })
 
 // Fixes an issue with filters not working on mobile
 Element.Select.computed.readonly = function () {
@@ -20,7 +19,7 @@ Element.Select.computed.readonly = function () {
     return !(this.filterable || this.multiple || !isIE) && !this.visible;
 };
 
-export default Element;
+Vue.use(Element, { locale })
 
 /**
  * The following block of code may be used to automatically register your

@@ -1,4 +1,4 @@
-name: float-scanner
+name: asx-float-scanner
 recipe: laravel
 config:
   webroot: public
