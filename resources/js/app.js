@@ -21,6 +21,11 @@ Element.Select.computed.readonly = function () {
 
 Vue.use(Element, { locale })
 
+import { BootstrapVue } from 'bootstrap-vue'
+
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -61,7 +66,7 @@ const app = new Vue({
         },
 
         modeToggle() {
-            if(this.darkMode || document.querySelector('body').classList.contains('dark-mode')) {
+            if (this.darkMode || document.querySelector('body').classList.contains('dark-mode')) {
                 this.light()
             } else {
                 this.dark()
@@ -70,7 +75,7 @@ const app = new Vue({
     },
     computed: {
         darkDark() {
-            return this.darkMode && 'darkmode-toggled'
-        }
+            return (this.darkMode && 'darkmode-toggled')
+        },
     }
 });

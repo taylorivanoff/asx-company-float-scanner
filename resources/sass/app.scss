@@ -10,6 +10,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Bootstrap Vue
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-vue/src/index.scss';
+
 // Dark Mode
 @import 'darkmode';
 
@@ -17,18 +21,22 @@
   display: none;
 }
 
-html, body {
+body {
     background-color: #fff;
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh
 }
 
 header, footer {
     margin: 1rem 0;
 }
-                        
-#popout-link {
-    color: #222;
-}	
+
+a {
+  color: inherit; 
+  text-decoration: inherit; /* no underline */
+  &:hover {
+    color: #38c172;
+  }
+}

@@ -10,17 +10,17 @@
         <link rel="stylesheet" type="text/css" href="css/app.css">
 
         <script type="text/javascript">
-        function popout(link) { 
-            if (! window.focus)
-                return true;
-            var href;
-            if (typeof(link) == 'string') 
-                href = link;
-            else 
-                href = link.href; 
-            window.open(href, '{{ config('app.name') }}', 'width=380,height=130,scrollbars=no,menubar=no'); 
-            return false; 
-        }
+            function popout(link) { 
+                if (! window.focus)
+                    return true;
+                var href;
+                if (typeof(link) == 'string') 
+                    href = link;
+                else 
+                    href = link.href; 
+                window.open(href, '{{ config('app.name') }}', 'width=380,height=130,scrollbars=no,menubar=no'); 
+                return false; 
+            }
         </script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -40,11 +40,12 @@
                     <div class="col">
                         <header class="mt-md-5 pt-md-5">
                             <div class="d-flex">
-                                <h1 class="h4 mr-4">{{ config('app.name') }} 
-                                </h1>
+                                <h1 class="h4 mr-4"><a href="/">{{ config('app.name') }} </a></h1>
+
                                 <small class="text-success text-monospace pt-1 d-none d-sm-block">
                                     * Data from Yahoo Finance
                                 </small> 
+
                                 <div class="mode-toggle" @click="modeToggle" :class="darkDark">
                                     <div class="toggle">
                                         <div id="dark-mode" type="checkbox"></div>
@@ -54,15 +55,29 @@
                         </header>
                     </div>
                 </div>
-                <div class="row ">
+                <div class="row">
                     <div class="col">
-                        <p class="text-monospace d-none d-sm-block mb-md-4 p">Enter a ASX stock ticker/symbol. <span><small><a href="/" id="popout-link" onClick="return popout(this)" class="ml-4 d-none d-sm-inline"><u>Popout Window</u></a></small>
-                            </span>
-                        <span><small><a href="https://github.com/taylorivanoff/asx-float-scanner" target="_blank" id="popout-link" class="ml-4 d-none d-sm-inline"><u>Source Code</u></a></small>
-                            </span>
+                        <p class="text-monospace d-none d-sm-block mb-md-4 p">
+                            Instant access to an ASX company's float for active traders.
+                        </p>
+                        <p class="text-monospace d-none d-sm-block mb-md-4 p">
+                            <small>Enter a ASX stock ticker/symbol.</small>
+
+                            <span><small><a href="/companies" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Filter Companies By Float</u></a></small></span>
+
+                            <span><small><a href="/" onClick="return popout(this)" class="link ml-4 d-none d-sm-inline"><u>Popout Window</u></a></small></span>
+
+                            <span><small><a href="https://github.com/taylorivanoff/asx-float-scanner" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Source Code</u></a></small></span>
                         </p>
 
-                        @yield('content')
+                        <stock-select></stock-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="text-monospace mb-md-4 p">ASX tickers gapping up from 0-200M float. Times in AEST. Updates every 10 seconds.</p>
+
+                        <stock-table></stock-table>
                     </div>
                 </div>
             </div>

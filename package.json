@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "bootstrap-vue": "^2.11.0",
         "element-theme-default": "^1.4.13",
         "element-ui": "^2.13.1"
     }

@@ -12,11 +12,9 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $companies = Company::all()->whereNotNull('float');
-
-        return response()->json($companies);
+        return view('companies.index');
     }
 
     /**

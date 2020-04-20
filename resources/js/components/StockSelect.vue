@@ -12,7 +12,7 @@
                 placeholder="XYZ.AX"
                 :remote-method="remoteMethod"
                 change="selectionChanged"
-                class="text-monospace"
+                class="text-monospace mb-4"
                 :loading="loading">
                     <el-option
                       v-for="item in options"
@@ -26,9 +26,7 @@
         </div>
         <div class="col-sm-9 col-7">
             <p class="text-success text-monospace h5 pt-2" v-if="ticker">
-                {{ ticker.float }} FLOAT<br><br>
-                <span class="d-none d-sm-block h6">{{ ticker.name }}<br></span>
-                <span class="d-none d-sm-block h6">UPDATED {{ ticker.updated_at }}<br><br></span>
+                {{ ticker.float }}
             </p> 
         </div>
     </div>              

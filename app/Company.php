@@ -42,6 +42,16 @@ class Company extends Model
 	public function getRouteKeyName()
 	{
 	    return 'code';
+    }
+    
+    /**
+     * Get the company name
+     *
+     * @return string
+     */
+    public function getNameAttribute($value)
+    {
+        return ucwords(strtolower($value));
 	}
 
     /**
@@ -60,7 +70,7 @@ class Company extends Model
         foreach ($letters as $letter => $multiple) {
             if (strpos($this->float, $letter) !== false) {
                 str_replace($letter, "", $this->float);
-                return $this->attributes['float_integer'] = (int) $this->float * $multiple;
+                return $this->attributes['float_integer'] = (float) $this->float * $multiple;
             }
         }
     }

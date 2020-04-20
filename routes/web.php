@@ -14,8 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/refresh/companies', 'HomeController@updateCompanies');
-Route::get('/refresh/floats', 'HomeController@refresh');
-
-Route::get('/popout', 'HomeController@popout');
-Route::post('/show', 'HomeController@show');
+Route::resource('/companies', 'CompanyController');
