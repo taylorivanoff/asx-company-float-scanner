@@ -1,4 +1,4 @@
-# ASX Stock Float Scanner
+# ASX Float Scanner
 
 A tool made with Laravel that stores and keeps up-to-date a list of ASX-listed companies along with the amount of shares that company has released to the public (float).
 
