@@ -57,7 +57,10 @@
                 <div class="row ">
                     <div class="col">
                         <p class="text-monospace d-none d-sm-block mb-md-4 p">Enter a ASX stock ticker/symbol. <span><small><a href="/" id="popout-link" onClick="return popout(this)" class="ml-4 d-none d-sm-inline"><u>Popout Window</u></a></small>
-                            </span></p>
+                            </span>
+                        <span><small><a href="https://github.com/taylorivanoff/asx-float-scanner" id="popout-link" class="ml-4 d-none d-sm-inline"><u>Source Code</u></a></small>
+                            </span>
+                        </p>
 
                         @yield('content')
                     </div>
