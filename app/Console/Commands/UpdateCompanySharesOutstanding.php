@@ -40,8 +40,10 @@ class UpdateCompanySharesOutstanding extends Command
      */
     public function handle()
     {
-        $companies = Company::all();
-
+        $companies = Company::where('updated_at', '>=', Carbon::now()->subWeeks(2))
+            ->whereNull('shares_outstanding')
+            ->get();
+            
         $bar = $this->output->createProgressBar(count($companies));
 
         foreach ($companies as $company) {
