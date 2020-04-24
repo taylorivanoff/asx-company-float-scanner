@@ -7,6 +7,10 @@
       ref="table"
       :sort-compare-options="{ numeric: true, sensitivity: 'base' }"
     ></b-table>
+    <div class="alert">
+      <p v-if="loading">Loading...</p>
+      <p class="text-danger">{{alert}}</p>
+    </div>
   </div>
 </template>
 
@@ -77,13 +81,19 @@
             sortable: true,
           },
         ],
-        items: []
+        items: [],
+        loading: true,
+        alert: ''
       }
     },
     async created () {
         await axios.get('gappers')
             .then(response => {
                 this.items = response.data
+                this.loading = false;
+                if(this.items.trim()==''){
+                    this.alert = 'Nothing found.'
+                }
             })
             .catch(e => {
                 console.log(e)

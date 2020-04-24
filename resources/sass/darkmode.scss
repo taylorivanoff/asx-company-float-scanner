@@ -80,6 +80,7 @@ body.dark-mode {
     .el-select,.el-input,.el-input__inner,.el-scrollbar,.el-select-dropdown,.el-select-dropdown__item {
         background-color: lighten($dark, 5%);
         color: #D1D1D1;
+        border: 1px solid #d1d1d1;
     }
 
     .mode-toggle {

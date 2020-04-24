@@ -63,8 +63,6 @@
                         <p class="text-monospace d-none d-sm-block mb-md-4 p">
                             <small>Enter a ASX stock ticker/symbol.</small>
 
-                            <span><small><a href="/companies" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Filter Companies By Float</u></a></small></span>
-
                             <span><small><a href="/" onClick="return popout(this)" class="link ml-4 d-none d-sm-inline"><u>Popout Window</u></a></small></span>
 
                             <span><small><a href="https://github.com/taylorivanoff/asx-float-scanner" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Source Code</u></a></small></span>
@@ -73,9 +71,12 @@
                         <stock-select></stock-select>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col">
-                        <p class="text-monospace mb-md-4 p">ASX tickers gapping up from 0-200M float. Times in AEST. Updates every 10 seconds.</p>
+                        <p class="text-monospace mb-md-4 p">ASX tickers gapping up 
+                            with 0-50M float, above $0.50, cap below 200M and vol. above 100K.<br>
+                              Time relative to AEST. 
+                            Updates every 10 seconds.</p>
 
                         <stock-table></stock-table>
                     </div>

@@ -20,7 +20,7 @@ class GapperCompanyController extends Controller
         $companies = Company::all()
             ->whereNotNull('float')
             ->where('float', '!=', '')
-            ->whereBetween('float_integer', [0, 200000000])
+            ->whereBetween('float_integer', [0, 50000000])
             ->sortBy('float_integer')
         ;
 
@@ -44,6 +44,41 @@ class GapperCompanyController extends Controller
                 }
             }
         }
+
+        foreach ($matched as $key => &$company) {
+            $price = (float) $company['sslast'];
+            if ($price <= 0.5) {
+                unset($matched[$key]);                
+            }
+
+            $cap = $company['sscap'];
+            $vol = $company['ssvol'];
+
+            $letters = [
+                'k' => 1000,
+                'M' => 1000000,
+                'B' => 1000000000,
+            ];
+
+            foreach ($letters as $letter => $multiple) {
+                if (strpos($cap, $letter) !== false) {
+                    str_replace($letter, "", $cap);
+                    $cap = (float) $cap * $multiple;
+                    if ($cap > 200000000) {
+                        unset($matched[$key]);                
+                    }
+                }
+                if (strpos($vol, $letter) !== false) {
+                    str_replace($letter, "", $vol);
+                    $vol = (float) $vol * $multiple;
+                    if ($vol < 100000) {
+                        unset($matched[$key]);                
+                    }
+                }
+            }
+        }
+        unset($company);
+        $matched = array_values($matched);
 
         return response()->json($matched);
     }
