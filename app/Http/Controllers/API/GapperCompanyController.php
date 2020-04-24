@@ -46,6 +46,8 @@ class GapperCompanyController extends Controller
         }
 
         foreach ($matched as $key => &$company) {
+            unset($company['sscode'],$company['xindex'],$company['ssarrow'],$company['cellClasses']);
+
             $price = (float) $company['sslast'];
             if ($price <= 0.5) {
                 unset($matched[$key]);                

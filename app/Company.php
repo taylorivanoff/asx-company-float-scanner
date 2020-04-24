@@ -93,6 +93,6 @@ class Company extends Model
      */
     public function getUpdatedAtAttribute($value)
     {
-        return strtoupper(Carbon::parse($value)->diffForHumans());
+        return Carbon::parse($value)->diffForHumans();
     }
 }

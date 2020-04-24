@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Notifications\Feedback;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
-Route::resource('/companies', 'CompanyController');

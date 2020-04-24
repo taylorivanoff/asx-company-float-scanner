@@ -7,9 +7,9 @@
       ref="table"
       :sort-compare-options="{ numeric: true, sensitivity: 'base' }"
     ></b-table>
-    <div class="alert">
+    <div class="text-muted">
       <p v-if="loading">Loading...</p>
-      <p class="text-danger">{{alert}}</p>
+      <p>{{alert}}</p>
     </div>
   </div>
 </template>
@@ -91,8 +91,10 @@
             .then(response => {
                 this.items = response.data
                 this.loading = false;
-                if(this.items.trim()==''){
+                if (this.items.length == 0) {
                     this.alert = 'Nothing found.'
+                } else {
+                    this.alert = '';
                 }
             })
             .catch(e => {
@@ -103,6 +105,11 @@
           axios.get('gappers')
             .then(response => {
                 this.items = response.data
+                if (this.items.length == 0) {
+                    this.alert = 'Nothing found.'
+                } else {
+                    this.alert = '';
+                }
             })
             .catch(e => {
                 console.log(e)

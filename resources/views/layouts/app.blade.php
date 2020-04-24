@@ -42,9 +42,7 @@
                             <div class="d-flex">
                                 <h1 class="h4 mr-4"><a href="/">{{ config('app.name') }} </a></h1>
 
-                                <small class="text-success text-monospace pt-1 d-none d-sm-block">
-                                    * Data from Yahoo Finance
-                                </small> 
+                                
 
                                 <div class="mode-toggle" @click="modeToggle" :class="darkDark">
                                     <div class="toggle">
@@ -58,23 +56,35 @@
                 <div class="row">
                     <div class="col">
                         <p class="text-monospace d-none d-sm-block mb-md-4 p">
-                            Instant access to an ASX company's float for active traders.
+                            Access an ASX-listed company's float.<span><small class="ml-2 text-success text-monospace pt-1">
+                                    * Data from Yahoo Finance
+                                </small> </span>
+                            
                         </p>
+
                         <p class="text-monospace d-none d-sm-block mb-md-4 p">
                             <small>Enter a ASX stock ticker/symbol.</small>
+                        </p>
 
-                            <span><small><a href="/" onClick="return popout(this)" class="link ml-4 d-none d-sm-inline"><u>Popout Window</u></a></small></span>
+                        <stock-select></stock-select>
+
+                        <p class="text-monospace d-none d-sm-block mb-md-4 p">
+
+                            <span><small><a href="/" onClick="return popout(this)" class="link d-none d-sm-inline"><u>Popout Window</u></a></small></span>
 
                             <span><small><a href="https://github.com/taylorivanoff/asx-float-scanner" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Source Code</u></a></small></span>
                         </p>
 
-                        <stock-select></stock-select>
+                        @if (config('feedback.enabled'))
+                          <feedback-form />
+                        @endif
+
                     </div>
                 </div>
                 <div class="row mt-5">
                     <div class="col">
-                        <p class="text-monospace mb-md-4 p">ASX tickers gapping up 
-                            with 0-50M float, above $0.50, cap below 200M and vol. above 100K.<br>
+                        <p class="text-monospace mb-md-4 p small">ASX tickers gapping up 
+                            with below 50M float, below 200M mkt. cap., price above $0.50 and vol. above 100K.<br>
                               Time relative to AEST. 
                             Updates every 10 seconds.</p>
 

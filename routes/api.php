@@ -1,6 +1,8 @@
 <?php
 
+use App\Notifications\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('/companies', 'CompanyController');
 Route::get('/gappers', 'GapperCompanyController');
+
+Route::post('feedback', function (Request $request) {
+    Notification::route('mail', config('feedback.email'))
+        ->notify(new Feedback($request->input()));
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
