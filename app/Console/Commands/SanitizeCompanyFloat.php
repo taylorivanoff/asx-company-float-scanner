@@ -38,16 +38,12 @@ class SanitizeCompanyFloat extends Command
      */
     public function handle()
     {
-        // remove spans
         $companies = Company::where('float', 'like', "%span%")
             ->get();
 
         foreach ($companies as $company) {
             $company->float = '';
             $company->save();
-
-            $this->info("Sanitised $company->code");
         }
-        // convert float strings to proper integers
     }
 }
