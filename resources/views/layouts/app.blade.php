@@ -42,8 +42,6 @@
                             <div class="d-flex">
                                 <h1 class="h4 mr-4"><a href="/">{{ config('app.name') }} </a></h1>
 
-                                
-
                                 <div class="mode-toggle" @click="modeToggle" :class="darkDark">
                                     <div class="toggle">
                                         <div id="dark-mode" type="checkbox"></div>
@@ -55,21 +53,17 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="text-monospace d-none d-sm-block mb-md-4 p">
-                            Access an ASX-listed company's float.<span><small class="ml-2 text-success text-monospace pt-1">
-                                    * Data from Yahoo Finance
-                                </small> </span>
-                            
+                        <p class="text-monospace mb-md-4 p">
+                            Access an ASX-listed company's float.<span><small class="ml-2 text-success text-monospace pt-1">* Data from Yahoo Finance</small></span>
                         </p>
 
-                        <p class="text-monospace d-none d-sm-block mb-md-4 p">
+                        <p class="text-monospace mb-md-4 p">
                             <small>Enter a ASX stock ticker/symbol.</small>
                         </p>
 
                         <stock-select></stock-select>
 
                         <p class="text-monospace d-none d-sm-block mb-md-4 p">
-
                             <span><small><a href="/" onClick="return popout(this)" class="link d-none d-sm-inline"><u>Popout Window</u></a></small></span>
 
                             <span><small><a href="https://github.com/taylorivanoff/asx-float-scanner" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Source Code</u></a></small></span>
