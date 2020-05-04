@@ -40,7 +40,7 @@
                     <div class="col">
                         <header class="mt-md-5 pt-md-5">
                             <div class="d-flex">
-                                <h1 class="h4 mr-4"><a href="/">{{ config('app.name') }} </a></h1>
+                                <h1 class="h4 mr-4"><a href="/">{{ config('app.name') }}</a> <small class="text-muted h6"><br>Stock scanner for intraday traders</small></h1>
 
                                 <div class="mode-toggle" @click="modeToggle" :class="darkDark">
                                     <div class="toggle">
@@ -53,36 +53,37 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="text-monospace mb-md-4 p">
-                            Access an ASX-listed company's float.<span><small class="ml-2 text-success text-monospace pt-1">* Data from Yahoo Finance</small></span>
-                        </p>
-
-                        <p class="text-monospace mb-md-4 p">
-                            <small>Enter a ASX stock ticker/symbol.</small>
-                        </p>
-
-                        <stock-select></stock-select>
-
                         <p class="text-monospace d-none d-sm-block mb-md-4 p">
                             <span><small><a href="/" onClick="return popout(this)" class="link d-none d-sm-inline"><u>Popout Window</u></a></small></span>
 
-                            <span><small><a href="https://github.com/taylorivanoff/asx-float-scanner" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Source Code</u></a></small></span>
+                            <span><small><a href="https://github.com/taylorivanoff/asx-scanner" target="_blank" class="link ml-4 d-none d-sm-inline"><u>Source Code</u></a></small></span>
+
+                            @if (config('feedback.enabled'))
+                              <feedback-form />
+                            @endif
                         </p>
-
-                        @if (config('feedback.enabled'))
-                          <feedback-form />
-                        @endif
-
                     </div>
                 </div>
-                <div class="row mt-5">
+        
+                <div class="row my-4">
+                    <div class="col text-monospace">
+                        <p>
+                            <small class=" mb-md-4">Enter an ASX listed company to find current share float.</small>
+                        <span><small class=" text-success text-monospace pt-1 pl-4">* Data from Yahoo Finance</small></span>
+                        </p>
+                        
+                        <stock-select></stock-select>
+                    </div>
+                </div>
+
+                <div class="row my-4">
                     <div class="col">
-                        <p class="text-monospace mb-md-4 p small">ASX tickers gapping up 
-                            with below 50M float, below 200M mkt. cap., price above $0.50 and vol. above 100K.<br>
+                        <p class="text-monospace mb-md-4 p small">ASX tickers gapping up. Above $0.20. Vol. above 100K.  
                               Time relative to AEST. 
                             Updates every 10 seconds.</p>
 
                         <stock-table></stock-table>
+
                     </div>
                 </div>
             </div>

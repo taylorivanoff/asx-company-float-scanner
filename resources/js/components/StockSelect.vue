@@ -25,7 +25,7 @@
             </el-select>
         </div>
         <div class="col-sm-9 col-7">
-            <p class="text-success text-monospace h5 pt-2" v-if="ticker">
+            <p class="text-success text-monospace h6 pt-2" v-if="ticker">
                 {{ ticker.float }}
             </p> 
         </div>

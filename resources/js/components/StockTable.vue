@@ -31,6 +31,11 @@
             sortable: true,
           },
           {
+            key: 'news',
+            label: 'News',
+            sortable: true,
+          },
+          {
             key: 'sslast',
             label: 'Price',
             sortable: true,
