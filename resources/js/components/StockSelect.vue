@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-9 col-7">
             <p class="text-success text-monospace h6 pt-2" v-if="ticker">
-                {{ ticker.float }}
+                {{ ticker.float }} (Updated {{ ticker.updated_at }})
             </p> 
         </div>
     </div>              

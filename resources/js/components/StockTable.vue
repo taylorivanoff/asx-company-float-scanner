@@ -120,7 +120,7 @@
                 console.log(e)
             })
           this.$refs.table.refresh()
-        }.bind(this), 10000); 
+        }.bind(this), 30000); 
     },
   }
 </script>

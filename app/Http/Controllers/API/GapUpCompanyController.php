@@ -26,7 +26,6 @@ class GapUpCompanyController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
         curl_close($ch);
-
         $response = json_decode($response);
         $data = $response->data;
 
@@ -43,11 +42,9 @@ class GapUpCompanyController extends Controller
             }
         }
 
-        foreach ($matched as $key => &$company) {
-            unset($company['xindex'], $company['ssarrow'], $company['cellClasses']);
-
+        foreach ($matched as $key => $company) {
             $price = (float) $company['sslast'];
-            if ($price <= 0.2) {
+            if ($price <= 0.3) {
                 unset($matched[$key]);                
             }
 
@@ -78,19 +75,16 @@ class GapUpCompanyController extends Controller
 
             $dom = HtmlDomParser::str_get_html($response);
             
-            if (empty($dom)) {
-                continue;
-            }
+            if (!empty($dom)) {
+                $tds = $dom->find('td');
 
-            $tds = $dom->find('td');
-
-            foreach ($tds as $td) {
-                if ($td->class == 'pricesens') {
-                    $matched[$key]['news'] = 'Y';
-                } 
+                foreach ($tds as $td) {
+                    if ($td->class == 'pricesens') {
+                        $matched[$key]['news'] = 'Y';
+                    } 
+                }
             }
         }
-        unset($company);
         $matched = array_values($matched);
 
         return response()->json($matched);

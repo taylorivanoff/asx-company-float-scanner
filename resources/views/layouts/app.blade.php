@@ -68,7 +68,7 @@
                 <div class="row my-4">
                     <div class="col text-monospace">
                         <p>
-                            <small class=" mb-md-4">Enter an ASX listed company to find current share float.</small>
+                            <small class="mb-md-4">Enter an ASX listed company to find current share float.</small>
                         <span><small class=" text-success text-monospace pt-1 pl-4">* Data from Yahoo Finance</small></span>
                         </p>
                         
@@ -78,9 +78,8 @@
 
                 <div class="row my-4">
                     <div class="col">
-                        <p class="text-monospace mb-md-4 p small">ASX tickers gapping up. Above $0.20. Vol. above 100K.  
-                              Time relative to AEST. 
-                            Updates every 10 seconds.</p>
+                        <p class="text-monospace mb-md-4 p small">ASX tickers gap ups. Above $0.30. Vol. above 100K.  
+                            Updates every 30 seconds. Time relative to AEST.</p>
 
                         <stock-table></stock-table>
 

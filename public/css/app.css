@@ -35000,12 +35000,12 @@ input[type=color].form-control:disabled {
 
 body {
   background-color: #fff;
-  color: #171717;
+  color: #283232;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 body.dark-mode {
-  background-color: #242424;
+  background-color: #334040;
   color: #D1D1D1;
 }
 
@@ -35080,7 +35080,7 @@ body.dark-mode .el-input__inner,
 body.dark-mode .el-scrollbar,
 body.dark-mode .el-select-dropdown,
 body.dark-mode .el-select-dropdown__item {
-  background-color: #242424;
+  background-color: #334040;
   color: #D1D1D1;
   border: 1px solid #d1d1d1;
 }
