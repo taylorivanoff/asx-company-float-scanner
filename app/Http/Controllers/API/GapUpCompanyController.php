@@ -45,7 +45,8 @@ class GapUpCompanyController extends Controller
         foreach ($matched as $key => $company) {
             $price = (float) $company['sslast'];
             if ($price <= 0.3) {
-                unset($matched[$key]);                
+                unset($matched[$key]);     
+                continue;           
             }
 
             $vol = $company['ssvol'];
@@ -61,7 +62,8 @@ class GapUpCompanyController extends Controller
                     str_replace($letter, "", $vol);
                     $vol = (float) $vol * $multiple;
                     if ($vol < 100000) {
-                        unset($matched[$key]);                
+                        unset($matched[$key]); 
+                        continue;               
                     }
                 }
             }
@@ -81,11 +83,13 @@ class GapUpCompanyController extends Controller
                 foreach ($tds as $td) {
                     if ($td->class == 'pricesens') {
                         $matched[$key]['news'] = 'Y';
+                        continue;
                     } 
                 }
             }
         }
         $matched = array_values($matched);
+
 
         return response()->json($matched);
     }

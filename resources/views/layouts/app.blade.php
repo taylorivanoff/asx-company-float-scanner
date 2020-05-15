@@ -69,7 +69,7 @@
                     <div class="col text-monospace">
                         <p>
                             <small class="mb-md-4">Enter an ASX listed company to find current share float.</small>
-                        <span><small class=" text-success text-monospace pt-1 pl-4">* Data from Yahoo Finance</small></span>
+                            <span><small class="text-success text-monospace pt-1 pl-4">* Data from Yahoo Finance</small></span>
                         </p>
                         
                         <stock-select></stock-select>
@@ -82,7 +82,6 @@
                             Updates every 30 seconds. Time relative to AEST.</p>
 
                         <stock-table></stock-table>
-
                     </div>
                 </div>
             </div>
