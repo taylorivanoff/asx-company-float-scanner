@@ -17,7 +17,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\UpdateCompanies',
+        'App\Console\Commands\UpdateCompanyFloat',
+        'App\Console\Commands\SanitizeCompanyFloat',
+        'App\Console\Commands\UpdateCompanySharesOutstanding',
     ];
 
     /**
